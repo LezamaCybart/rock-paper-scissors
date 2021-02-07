@@ -1,11 +1,10 @@
-<script>
   function computerPlay() { // chooses a random value (between: rock, paper or scissors) for the computer
     let hand = ["rock", "scissors", "paper"];
     return hand[Math.floor(Math.random() * Math.floor(3))];
   }
 
   
-  function playRound(playerSelection, computerSelection) { // plays a round of the game
+  function playRound(playerSelection, computerSelection ) { // plays a round of the game
     playerSelection = playerSelection.toLowerCase(); // make it so it doesn't matter if the users inputs "rock", "Rock", "rOcK", etc...
     if (playerSelection == computerSelection) {
       return "tie!";
@@ -31,15 +30,25 @@
   }
 
   function announceWin(playerSelection, computerSelection) {
+    let p = document.querySelector('p');
+
     let announcement =
       "You won! " + playerSelection + " beats " + computerSelection;
-    return announcement;
+
+      
+    p.textContent = announcement;
+
   }
 
   function announceLoss(playerSelection, computerSelection) {
+    let p = document.querySelector('p');
+
     let announcement =
       "You lost! " + computerSelection + " beats " + playerSelection;
-    return announcement;
+
+    p.textContent = announcement;
+
+
   }
 
   function game() { // plays rounds of the game until someone wins ( gets first to 3 points )
@@ -61,4 +70,11 @@
       if (computerPoints == 3) return "You lost the game :((";
     }
   }
-</script>
+
+  const botones = document.querySelectorAll('button');
+  botones.forEach( button => button.addEventListener('click', function(button) {
+    let playerSelection = button.target.value;
+    let computerSelection = computerPlay();
+    playRound(playerSelection, computerSelection);
+  }));
+

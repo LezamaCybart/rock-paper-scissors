@@ -1,0 +1,37 @@
+html {
+    overflow-y: hidden;
+}
+
+body {
+    background-color: blanchedalmond;
+    height: 100vh;
+}
+
+main {
+  display: block;
+  margin-top: 140px;
+  height: 50%;
+  width: 100%;
+}
+
+.result-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50%;
+}
+
+.button-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+p {
+    font-size: 60px;
+}
+
+button {
+    margin: 10px;
+    font-size: xx-large;
+}
